@@ -4,7 +4,6 @@ let totalPrice = 0;
 let ticketPrice = 0;
 let ticketBudget = 0;
 
-// let ticketClassFilledIn = true;
 let ticketClassPriceIncrease = 1.0;
 
 let ticketBudgetFilledIn = false;
@@ -36,7 +35,6 @@ const asNoteValidationResult = document.getElementById(
 
 const calculateTotalPrice = () => {
   let asMessage = '';
-  //if (ticketClassFilledIn) {
   totalPrice =
     parseInt(asDestination.value) *
     parseInt(asPieces.value) *
@@ -45,10 +43,8 @@ const calculateTotalPrice = () => {
     totalPrice *= 2;
   }
   asMessage = `Výsledná částka: ${totalPrice} Kč`;
-  //} else {
-  //  asMessage = 'Vyberte třídu letenek.';
-  //}
   asPriceCalculationResult.textContent = asMessage;
+  asTicketBudgetValidationResult.textContent = '';
 };
 
 calculateTotalPrice();
@@ -91,11 +87,6 @@ const verifyTicketBudget = () => {
   }
 };
 
-// asPriceCalculationBtn.addEventListener('click', function () {
-//   calculateTotalPrice();
-//   verifyTicketBudget();
-// });
-
 asDestination.addEventListener('change', function () {
   calculateTotalPrice();
   verifyTicketBudget();
@@ -112,9 +103,7 @@ asWayBackChb.addEventListener('change', function () {
 });
 
 ticketClass.addEventListener('change', function (event) {
-  // ticketClassFilledIn = true;
   ticketClassPriceIncrease = parseFloat(event.target.value);
-  // asPriceCalculationBtn.removeAttribute('disabled');
   calculateTotalPrice();
   verifyTicketBudget();
 });
