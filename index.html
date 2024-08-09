@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AvionSalon - Objednávka letenek</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <section class="as-form m-5 container">
+      <h1 class="pt-4">AvionSalon - Objednávka letenek</h1>
+      <form id="as-order">
+        <fieldset id="as-ticket-detail-fs" class="my-3 bg-light p-2 rounded-2">
+          <legend>Detail letenky</legend>
+          <label for="as-destination" class="form-label">Destinace</label>
+          &nbsp;
+          <select
+            name="as-destination"
+            id="as-destination"
+            class="as-destination-select"
+            title="Destinace"
+          >
+            <option value="500">Praha (500 Kč)</option>
+            <option value="3000">Frankfurt (3 000 Kč)</option>
+            <option value="15000">New York (15 000 Kč)</option>
+            <option value="30000">Sydney (30 000 Kč)</option>
+          </select>
+          &nbsp;
+          <label for="as-pcs" class="form-label">Počet ks</label>
+          &nbsp;
+          <select name="as-pcs" id="as-pcs" class="as-pcs" title="Počet kusů">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+          </select>
+          <br />
+          <label for="as-way-back-checkbox" class="form-label"
+            >Zpáteční letenka</label
+          >
+          <input
+            type="checkbox"
+            id="as-way-back-checkbox"
+            name="as-way-back-chb"
+            class="as-way-back-chb"
+            value="2"
+          />
+          <br />
+          <div class="as-class">
+            <p class="form-label">Třída letenek</p>
+            <input
+              type="radio"
+              name="as-class"
+              id="as-class-economy"
+              class="as-class-rdb"
+              value="1"
+              checked
+            />
+            <label for="as-class-economy" class="form-label">Economy</label>
+            <br />
+            <input
+              type="radio"
+              name="as-class"
+              id="as-class-business"
+              class="as-class-rdb"
+              value="1.25"
+            />
+            <label for="as-class-business" class="form-label"
+              >Business (+25 % celkové částky)</label
+            >
+            <br />
+            <input
+              type="radio"
+              name="as-class"
+              id="as-class-royal"
+              class="as-class-rdb"
+              value="1.5"
+            />
+            <label for="as-class-royal" class="form-label"
+              >Royal (+50 % celkové částky)</label
+            >
+          </div>
+        </fieldset>
+        <fieldset
+          id="as-price-calculation-fs"
+          class="my-3 bg-light p-2 rounded-2"
+        >
+          <legend>Kalkulace částky</legend>
+          <div id="as-price-calculation-result">Výsledná částka:</div>
+          <!-- <input
+            type="button"
+            id="as-price-calculation-btn"
+            value="Spočítat cenu letenky"
+            disabled
+            /> -->
+          <hr />
+          <div class="input-group">
+            <label for="as-ticket-budget" class="input-group-text"
+              >Rozpočet k dispozici:</label
+            >
+            <input
+              type="number"
+              placeholder="Maximální částka?"
+              min="0"
+              id="as-ticket-budget"
+              class="form-control"
+            />
+            <input
+              type="button"
+              value="Ověřit Rozpočet"
+              id="as-ticket-budget-btn"
+              class="btn bg-info"
+              disabled
+            />
+          </div>
+          <br />
+          <div id="as-price-validation-result" class="px-1"></div>
+        </fieldset>
+        <fieldset id="as-note-fs" class="my-3 bg-light p-2 rounded-2">
+          <legend>Poznámka</legend>
+          <textarea
+            id="as-note"
+            rows="10"
+            cols="40"
+            class="form-control"
+            placeholder="Pole nesmí obsahovat speciální znaky"
+          ></textarea
+          ><br />
+          <div id="as-note-validation-result"></div>
+        </fieldset>
+      </form>
+    </section>
+    <script src="script.js"></script>
+  </body>
+</html>
